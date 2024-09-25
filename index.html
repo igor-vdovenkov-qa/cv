@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Игорь - Персональная визитка</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Styles -->
+    <style>
+      body {
+        margin: 0;
+        font-family: 'Roboto', sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 20px;
+        background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+        color: white;
+      }
+
+      .header__avatar {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin-right: 20px;
+        border: 3px solid white;
+      }
+
+      .header__title {
+        font-size: 36px;
+        margin: 0;
+        font-weight: 700;
+      }
+
+      .header__subtitle {
+        font-size: 18px;
+        margin: 5px 0 0;
+        font-weight: 400;
+      }
+
+      main {
+        padding: 20px;
+      }
+
+      section {
+        margin-bottom: 40px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+      }
+
+      h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #2575fc;
+        text-align: center;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      li {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
+      }
+
+      li:last-child {
+        border-bottom: none;
+      }
+
+      a {
+        text-decoration: none;
+        color: #2575fc;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      a:hover {
+        color: #6a11cb;
+      }
+
+      footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #f4f4f4;
+        border-top: 1px solid #eee;
+      }
+
+      .button-link {
+        background-color: #2575fc;
+        color: white;
+        border: none;
+        padding: 15px 25px;
+        font-size: 18px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .button-link:hover {
+        background-color: #6a11cb;
+      }
+
+      /* Новый стиль для фото */
+      .gallery {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .gallery img {
+        width: 150px;
+        height: 100px;
+        object-fit: cover;
+        cursor: pointer;
+        transition: transform 0.2s;
+      }
+
+      .gallery img:hover {
+        transform: scale(1.1);
+      }
+
+      /* Стили для модального окна */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+      }
+
+      .modal img {
+        max-width: 90vw;
+        max-height: 90vh;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        border: 5px solid white;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Стили для всплывающего окна */
+      .popup {
+        display: none;
+        position: fixed;
+        z-index: 2;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      .popup p {
+        margin: 0;
+      }
+
+      .popup button {
+        margin-top: 10px;
+        background-color: #2575fc;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .popup button:hover {
+        background-color: #6a11cb;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <img src="./avatar.png" alt="avatar" class="header__avatar" />
+      <div class="header__textContainer">
+        <h1 class="header__title">Игорь Вдовенков</h1>
+        <h3 class="header__subtitle">Превращаю идеи в действия</h3>
+      </div>
+    </header>
+
+    <main>
+      <section class="links">
+        <h2 class="links__header">Мои контакты</h2>
+        <ul class="links__container">
+          <li class="links__link">
+            <p class="links__title">Телеграм</p>
+            <a href="https://t.me/NTMY_21">@NTMY_21</a>
+          </li>
+          <li class="links__link">
+            <p class="links__title">Эл. почта</p>
+            <a href="mailto:ig.vdowenkov2011@yandex.ru">ig.vdowenkov2011@yandex.ru</a>
+          </li>
+          <li class="links__link">
+            <p class="links__title">Гит</p>
+            <a href="https://github.com/igor-vdovenkov-qa">github.com/igor-vdovenkov-qa</a>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Блок с качествами -->
+      <section class="qualities">
+        <h2 class="links__header">Мои качества</h2>
+        <ul>
+          <li>
+            <span>Дисциплинированность</span>
+            <span>8/10</span>
+          </li>
+          <li>
+            <span>Способность к обучению</span>
+            <span>9/10</span>
+          </li>
+          <li>
+            <span>Критическое мышление</span>
+            <span>7/10</span>
+          </li>
+          <li>
+            <span>Гибкость и адаптивность</span>
+            <span>8/10</span>
+          </li>
+          <li>
+            <span>Работа в команде</span>
+            <span>9/10</span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="values">
+        <h2 class="links__header">Мои ценности</h2>
+        <p>Честность, постоянное развитие и стремление к новым знаниям — это основы моего подхода к жизни.</p>
+      </section>
+
+      <section class="goals">
+        <h2 class="links__header">Мои цели</h2>
+        <p>Моя цель — развиваться как профессионал, делиться своими знаниями и помогать другим достигать успеха.</p>
+      </section>
+
+      <section class="about-me">
+        <h2 class="links__header">Обо мне</h2>
+        <p>Я — человек, который находит радость в спорте во всех его проявлениях. Будь то утренние пробежки, занятия в тренажерном зале или увлекательные командные игры, спорт является неотъемлемой частью моей жизни. Я верю, что физическая активность наполняет меня энергией и помогает сохранять здоровье.
+
+          Кроме того, я люблю путешествовать и открывать для себя новые горизонты. Каждая поездка — это уникальная возможность узнать культуру других стран, попробовать новые блюда и встретить интересных людей. Познание мира наполняет меня вдохновением и новыми идеями, которые я стремлюсь применять в своей жизни.</p>
+
+        <div class="gallery">
+          <img src="./photo1.jpg" alt="photo1" onclick="openModal(this)" />
+          <img src="./photo2.jpg" alt="photo2" onclick="openModal(this)" />
+          <img src="./photo3.jpg" alt="photo3" onclick="openModal(this)" />
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <button class="button-link" onclick="showPopup()">Тестирование – это не ошибка, это процесс поиска правды</button>
+    </footer>
+
+    <div id="modal" class="modal" onclick="closeModal()">
+      <img id="modal-img" src="" alt="modal image" />
+    </div>
+
+    <div id="popup" class="popup">
+      <p>Поймать баг – это победа над хаосом.</p>
+      <button onclick="closePopup()">Закрыть</button>
+    </div>
+
+    <script>
+      let isModalOpen = false;
+      let currentScrollPosition = 0;
+
+      function openModal(imageElement) {
+        const modal = document.getElementById("modal");
+        const modalImg = document.getElementById("modal-img");
+
+        if (!isModalOpen) {
+          currentScrollPosition = window.scrollY;
+          modal.style.display = "flex";
+          modalImg.src = imageElement.src;
+          isModalOpen = true;
+        } else {
+          closeModal();
+        }
+      }
+
+      function closeModal() {
+        const modal = document.getElementById("modal");
+
+        modal.style.display = "none";
+        window.scrollTo(0, currentScrollPosition); // Возвращаем прокрутку на прежнее место
+        isModalOpen = false;
+      }
+
+      // Функции для всплывающего окна
+      function showPopup() {
+        const popup = document.getElementById("popup");
+        popup.style.display = "block";
+      }
+
+      function closePopup() {
+        const popup = document.getElementById("popup");
+        popup.style.display = "none";
+      }
+    </script>
+  </body>
+</html>
